@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load %}
+    {% load socialaccount %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Social Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            margin: 0;
+        }
+        .card {
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white !important;
+        }
+        .nav-link {
+            color: white !important;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with logo and nav -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black px-4 py-2 shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="#" style="font-size: 1.5rem;">Social_Dashboard</a>
+    <div class="ms-auto">
+      <a href="/signup/" class="nav-link d-inline text-white px-3">Signup</a>
+      <a href="/login/" class="nav-link d-inline text-white px-3">Login</a>
+      <a href="/logout/" class="nav-link d-inline text-white px-3">Logout</a>
+    </div>
+  </div>
+</nav>
+
+
+    <!-- Main content -->
+    <div class="container py-5 text-center">
+        <h1 class="mb-4">Connect Your Social Media Accounts</h1>
+        <div class="row justify-content-center g-4">
+
+            <!-- Facebook -->
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" class="social-icon mx-auto mb-3">
+                    <h4>Facebook</h4>
+                    <p>Connect your Facebook account</p>
+                    <a href="{% provider_login_url 'facebook' next='/facebook/login' %}" class="btn btn-primary">Connect</a>
+                </div>
+            </div>
+
+            <!-- Twitter -->
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" class="social-icon mx-auto mb-3">
+                    <h4>Twitter</h4>
+                    <p>Connect your Twitter account</p>
+                    <a href="{% provider_login_url 'twitter' next='/twitter_profile'%}"  class="btn btn-info">Connect</a>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="social-icon mx-auto mb-3">
+                    <h4>Instagram</h4>
+                    <p>Connect your Instagram account</p>
+                    <a href="#" class="btn btn-danger disabled">Coming Soon</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

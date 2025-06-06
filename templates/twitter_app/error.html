@@ -1,0 +1,36 @@
+<!-- templates/twitter_app/twitter_tweets.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Feed</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #f8fafc, #e0f2fe);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .container {
+            max-width: 700px;
+            margin-top: 100px;
+        }
+        .alert {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">⚠️ Too Many Requests</h4>
+            <p>You have made too many requests to the Twitter API in a short period.</p>
+            <hr>
+            <p class="mb-0">Please wait a while before trying again.</p>
+        </div>
+        <a href="/index" class="btn btn-primary mt-3">Go Back to Home</a>
+    </div>
+</body>
+</html>
