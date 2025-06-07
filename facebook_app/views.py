@@ -23,7 +23,7 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return redirect('index')  # Change to your target view name
+            return redirect('index')  
         else:
             return render(request, 'login.html', {'error': 'Invalid email or password'})
     return render(request,'login.html')
@@ -119,7 +119,7 @@ def get_user_pages(request):
     response = requests.get(url, params=params)
     if response.status_code == 200:
         pages_data = response.json().get("data", [])
-        # ✅ Save page tokens in session as a dict {page_id: token}
+        #  Save page tokens in session as a dict {page_id: token}
         page_token_map = {page["id"]: page["access_token"] for page in pages_data}
         request.session["page_tokens"] = page_token_map
         return render(request,'facebook_app/pages.html',{"pages": pages_data})
@@ -211,9 +211,9 @@ def page_posts_view(request, page_id):
 
 @login_required(login_url='/login/')
 def get_comments(request, post_id):
-    # Get access token from session (replace with your method if different)
+    # Get access token from session 
     page_tokens = request.session.get("page_tokens", {})
-    # Try to find the page ID prefix (post_id is usually like: PAGEID_POSTID)
+    # Try to find the page ID prefix 
     page_id = post_id.split("_")[0]
     page_token = page_tokens.get(page_id)
 
@@ -225,7 +225,7 @@ def get_comments(request, post_id):
     params = {
         "access_token": page_token,
         "fields": "id,message,from,created_time",
-        "limit": 100  # Fetch as many as Facebook allows in one call
+        "limit": 100  
     }
 
     response = requests.get(url, params=params)
@@ -278,7 +278,7 @@ def add_comment_view(request, post_id):
         else:
             return HttpResponse(f"Error posting comment: {response.text}", status=response.status_code)
 
-    # If GET, render form
+   
     return render(request, "facebook_app/add_comment.html", {"post_id": post_id})
 
 
