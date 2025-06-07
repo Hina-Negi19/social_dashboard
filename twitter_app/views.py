@@ -61,10 +61,8 @@ def twitter_login_start(request):
     )
 
     try:
-        # Automatically builds the authenticate URL like: https://api.twitter.com/oauth/authenticate?oauth_token=...
+        
         redirect_url = auth.get_authorization_url()
-
-        # Save request token to session for later use
         request.session['request_token'] = auth.request_token
 
         # Redirect user to Twitter login page
@@ -107,9 +105,7 @@ def twitter_tweets_view(request):
     if not bearer_token:
         return JsonResponse({"error": "Bearer token not configured."}, status=400)
 
-    username = "HinaNegi19"  # You can make this dynamic if needed
-
-    # Step 1: Get User ID by username
+    username = "HinaNegi19"  
     user_url = f"https://api.twitter.com/2/users/by/username/{username}"
     headers = {
         "Authorization": f"Bearer {bearer_token}"
