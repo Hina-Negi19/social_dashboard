@@ -155,7 +155,7 @@ SOCIALACCOUNT_PROVIDERS = {
      'twitter': {
         'APP': {
            'client_id':'add_your_id',
-            'secret':'dd_your_secret_key',        # Also called "Consumer Secret"
+            'secret':'dd_your_secret_key',       
         }
     },
 
